@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.biki9933.mapper.DishMapper">
+
+    <resultMap type="Dish" id="DishResult">
+        <result property="id" column="id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="name" column="name"/>
+        <result property="image" column="image"/>
+        <result property="typeId" column="typeId"/>
+        <result property="monthlysale" column="monthlysale"/>
+        <result property="unitprice" column="unitprice"/>
+        <result property="unit" column="unit"/>
+        <result property="quantity" column="quantity"/>
+        <result property="time" column="time"/>
+        <result property="onsale" column="onsale"/>
+        <association property="type" column="type_id" select="com.biki9933.mapper.CategoryMapper.findById"/>
+        <association property="merchant" column="merchant_id" select="com.biki9933.mapper.MerchantMapper.findById"/>
+    </resultMap>
+
+    <select id="list" parameterType="Map" resultMap="DishResult">
+        select * from t_dish
+        where merchant_id = #{merchantId}
+        <if test="name!=null and name!=''">
+            and name like concat('%',#{name},'%')
+        </if>
+        <if test="start!=null and pageSize!=null">
+            limit #{start},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from t_dish
+        where merchant_id = #{merchantId}
+        <if test="name!=null and name!=''">
+            and name like concat('%',#{name},'%')
+        </if>
+    </select>
+
+<select id="getDishSalesStatistics" resultType="java.util.Map">
+    SELECT 
+        d.name as dishName,
+        d.unitprice as price,
+        COALESCE(SUM(od.quantity), 0) as salesCount,
+        COALESCE(SUM(od.quantity * od.price), 0) as totalAmount
+    FROM 
+        t_dish d
+        LEFT JOIN t_order_detail od ON d.id = od.dish_id
+        LEFT JOIN t_order o ON od.order_id = o.id
+    WHERE 
+        d.merchant_id = #{merchantId}
+        AND (o.status = 2 OR o.status = 3 OR o.status IS NULL)  -- 统计已支付和已完成的订单
+    GROUP BY 
+        d.id, d.name, d.unitprice
+    ORDER BY 
+        salesCount DESC, totalAmount DESC
+    LIMIT 10
+</select>
+
+</mapper>

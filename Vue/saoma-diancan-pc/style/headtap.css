@@ -1,0 +1,94 @@
+/* 更新 headtap.css 中的样式 */
+.page-container {
+	padding: 20px;
+	margin: 0 auto;
+	max-width: 1400px;
+  }
+  
+  /* 通用标题样式 */
+  .page-title {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: #333;
+  }
+  
+  /* 通用内容容器 */
+  .content-container {
+	background: #fff;
+	border-radius: 4px;
+	padding: 20px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  
+  /* 操作栏样式 */
+  .operation-bar {
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  /* 响应式布局保持不变 */
+  @media screen and (min-width: 1700px) {
+	.page-container { max-width: 1400px; }
+  }
+/* 主页定位 */
+.ordering {
+    position: relative;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1400px;
+    min-height: calc(100vh - 50px);
+}
+
+/* 页面标题样式 */
+.heading {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 没有数据的提示 */
+.nodatas {
+    text-align: center;
+    color: #999;
+    padding: 100px 0;
+}
+
+/* 全局响应式*/
+@media screen and (min-width: 1700px) {
+    .ordering { max-width: 1400px; }
+}
+@media screen and (max-width: 1700px) {
+    .ordering { max-width: 1300px; }
+}
+
+@media screen and (max-width: 1650px) {
+	.ordering{max-width: 1200px;}
+}
+
+@media screen and (max-width: 1550px) {
+	.ordering{max-width: 1100px;}
+}
+
+@media screen and (max-width: 1430px) {
+	.ordering{max-width: 1000px;}
+}
+
+@media screen and (max-width: 1300px) {
+	.ordering{max-width: 900px;}
+}
+
+@media screen and (max-width: 1200px) {
+	.ordering{max-width: 850px;}
+}
+
+@media screen and (max-width: 1130px) {
+	.ordering{max-width: 800px;}
+}
+
+@media screen and (max-width: 1100px) {
+	.ordering{max-width: 750px;}
+}

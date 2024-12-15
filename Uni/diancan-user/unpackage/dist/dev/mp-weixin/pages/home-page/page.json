@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "Java1234餐饮店",
+  "navigationBarBackgroundColor": "#f7d45f",
+  "usingComponents": {
+    "uni-popup": "/node-modules/@dcloudio/uni-ui/lib/uni-popup/uni-popup",
+    "uni-popup-dialog": "/node-modules/@dcloudio/uni-ui/lib/uni-popup-dialog/uni-popup-dialog",
+    "cart": "/pages/home-page/components/shopping-cart",
+    "details": "/pages/home-page/components/goods-details",
+    "home": "/pages/skeleton-view/home"
+  }
+}

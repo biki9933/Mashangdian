@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.biki9933.mapper.UserMapper">
+
+    <resultMap type="User" id="UserResult">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+    </resultMap>
+
+    <select id="list" parameterType="Map" resultMap="UserResult">
+        select id, user_name from t_user
+        <where>
+            <if test="userName!=null and userName!=''">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+        </where>
+        <if test="start!=null and pageSize!=null">
+            limit #{start},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from t_user
+        <where>
+            <if test="userName!=null and userName!=''">
+                and user_name like concat('%',#{userName},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="Integer" resultMap="UserResult">
+        select id, user_name from t_user where id=#{id}
+    </select>
+
+</mapper> 

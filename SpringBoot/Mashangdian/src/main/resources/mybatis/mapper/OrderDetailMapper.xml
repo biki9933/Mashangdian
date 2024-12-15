@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.biki9933.mapper.OrderDetailMapper">
+
+    <resultMap type="OrderDetail" id="OrderDetailResult">
+        <id property="id" column="id"/>
+        <result property="order_id" column="order_id"/>
+        <result property="dish_id" column="dish_id" jdbcType="INTEGER"/>
+        <result property="quantity" column="quantity"/>
+        <result property="price" column="price"/>
+        <result property="name" column="name"/>
+        <result property="unit" column="unit"/>
+        <result property="image" column="image"/>
+        <result property="create_time" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="order_no" column="order_no"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="OrderDetail" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_order_detail (
+            order_id,
+            dish_id,
+            quantity,
+            price
+        ) VALUES (
+            #{order_id},
+            #{dish_id},
+            #{quantity},
+            #{price}
+        )
+    </insert>
+
+    <select id="list" resultMap="OrderDetailResult">
+        SELECT 
+            t_order_detail.id,
+            t_order_detail.order_id,
+            t_order_detail.dish_id,
+            t_order_detail.quantity,
+            t_order_detail.price,
+            t_dish.name as name,
+            t_dish.unit as unit,
+            t_dish.image as image,
+            t_order.create_time as create_time,
+            t_order.order_no as order_no
+        FROM t_order_detail
+        LEFT JOIN t_dish ON t_order_detail.dish_id = t_dish.id
+        LEFT JOIN t_order ON t_order_detail.order_id = t_order.id
+        <where>
+            <if test="ew.sqlSegment != null and ew.sqlSegment != ''">
+                ${ew.sqlSegment}
+            </if>
+        </where>
+    </select>
+
+    <select id="listByOrderId" parameterType="Integer" resultMap="OrderDetailResult">
+        SELECT 
+            t_order_detail.id,
+            t_order_detail.order_id,
+            t_order_detail.dish_id,
+            t_order_detail.quantity,
+            t_order_detail.price,
+            t_dish.name as name,
+            t_dish.unit as unit,
+            t_dish.image as image,
+            t_order.create_time as create_time,
+            t_order.order_no as order_no
+        FROM t_order_detail 
+        LEFT JOIN t_dish ON t_order_detail.dish_id = t_dish.id
+        LEFT JOIN t_order ON t_order_detail.order_id = t_order.id
+        WHERE t_order_detail.order_id = #{orderId}
+    </select>
+
+</mapper>
