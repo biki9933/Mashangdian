@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java1234.mapper.AdminMapper">
+
+    <resultMap type="Admin" id="AdminResult">
+        <result property="id" column="id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="userName" column="username"/>
+        <result property="password" column="password"/>
+        <association property="merchant" column="merchant_id" select="com.java1234.mapper.MerchantMapper.findById"/>
+    </resultMap>
+
+    <select id="list" parameterType="Map" resultMap="AdminResult">
+        select * from t_admin
+        where merchant_id = #{merchantId}
+        <if test="username!=null and username!=''">
+            and username like concat('%',#{username},'%')
+        </if>
+        <if test="start!=null and pageSize!=null">
+            limit #{start},#{pageSize}
+        </if>
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from t_admin
+        where merchant_id = #{merchantId}
+        <if test="username!=null and username!=''">
+            and username like concat('%',#{username},'%')
+        </if>
+    </select>
+
+    <select id="update" parameterType="com.java1234.entity.Admin">
+        update t_admin
+        set password=#{newPassword}
+        where username=#{userName}
+    </select>
+
+</mapper>

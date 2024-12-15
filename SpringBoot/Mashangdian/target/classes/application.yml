@@ -1,0 +1,36 @@
+server:
+  port: 80
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_diancan?serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+mybatis-plus:
+  type-aliases-package: com.java1234.entity
+  global-config:
+    db-config:
+      id-type: auto #id生成规则：数据库id自增
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+weixin:
+  accessTokenUrl: https://api.weixin.qq.com/cgi-bin/token
+  appid: wx9dee7cc3546a69e4
+  secret: b0d294d5eb667c2482f5f3f9e007c74b
+
+
+qrcodeImgsFilePath: D:\\test\\smdc\\SpringBoot\\java1234-diancan\\src\\main\\resources\\static\\qrcode\\
+dishImgsFilePath: D:\\test\\smdc\\SpringBoot\\java1234-diancan\\src\\main\\resources\\static\\dish\\
+
+
+
+
