@@ -12,7 +12,7 @@ spring:
     password: 123456
 
 mybatis-plus:
-  type-aliases-package: com.java1234.entity
+  type-aliases-package: com.biki9933.entity
   global-config:
     db-config:
       id-type: auto #id生成规则：数据库id自增
@@ -24,12 +24,12 @@ mybatis-plus:
 
 weixin:
   accessTokenUrl: https://api.weixin.qq.com/cgi-bin/token
-  appid: wx9dee7cc3546a69e4
-  secret: b0d294d5eb667c2482f5f3f9e007c74b
+  appid:
+  secret:
 
 
-qrcodeImgsFilePath: D:\\test\\smdc\\SpringBoot\\java1234-diancan\\src\\main\\resources\\static\\qrcode\\
-dishImgsFilePath: D:\\test\\smdc\\SpringBoot\\java1234-diancan\\src\\main\\resources\\static\\dish\\
+qrcodeImgsFilePath: D:\git\Mashangdian\SpringBoot\Mashangdian\src\main\resources\static\qrcode\
+dishImgsFilePath: D:\git\Mashangdian\SpringBoot\Mashangdian\src\main\resources\static\dish\
 
 
 

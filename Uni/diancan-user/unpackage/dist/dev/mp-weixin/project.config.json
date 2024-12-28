@@ -18,7 +18,7 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "3.7.0",
+  "libVersion": "3.7.1",
   "appid": "wx9dee7cc3546a69e4",
   "projectname": "diancan-user",
   "condition": {},

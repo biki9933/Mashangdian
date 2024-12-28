@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.java1234.mapper.TableMapper">
+<mapper namespace="com.biki9933.mapper.TableMapper">
 
     <resultMap type="Table" id="TableResult">
         <result property="id" column="id"/>
@@ -10,7 +10,7 @@
         <result property="number" column="number"/>
         <result property="qrcode" column="qrcode"/>
         <result property="time" column="time"/>
-        <association property="merchant" column="merchant_id" select="com.java1234.mapper.MerchantMapper.findById"/>
+        <association property="merchant" column="merchant_id" select="com.biki9933.mapper.MerchantMapper.findById"/>
     </resultMap>
 
     <select id="list" parameterType="Map" resultMap="TableResult">

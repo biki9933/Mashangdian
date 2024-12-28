@@ -1557,7 +1557,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8923,7 +8923,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8944,14 +8944,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9047,7 +9047,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9466,9 +9466,9 @@ internalMixin(Vue);
 
 /***/ }),
 /* 26 */
-/*!************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/pages.json ***!
-  \************************************************/
+/*!******************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/pages.json ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -9612,9 +9612,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 33 */
-/*!***************************************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/node_modules/goeasy/goeasy.esm.min.js ***!
-  \***************************************************************************/
+/*!*********************************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/node_modules/goeasy/goeasy.esm.min.js ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9685,7 +9685,7 @@ var s = /*#__PURE__*/function () {
     key: "isTaro",
     value: function isTaro() {
       try {
-        return void 0 !== Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).TARO_ENV;
+        return void 0 !== Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).TARO_ENV;
       } catch (e) {
         return !1;
       }
@@ -13887,7 +13887,7 @@ function xt(e, t, s) {
     try {
       e = t.storage.debug;
     } catch (e) {}
-    return !e && "undefined" != typeof process && "env" in process && (e = Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).DEBUG), e;
+    return !e && "undefined" != typeof process && "env" in process && (e = Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"diancan-user","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).DEBUG), e;
   }
   (t = e.exports = Ot.exports).log = function () {
     return "object" == (typeof console === "undefined" ? "undefined" : (0, _typeof2.default)(console)) && console.log && Function.prototype.apply.call(console.log, console, arguments);
@@ -23909,9 +23909,9 @@ module.exports = _possibleConstructorReturn, module.exports.__esModule = true, m
 
 /***/ }),
 /* 49 */
-/*!******************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/style/animat.css ***!
-  \******************************************************/
+/*!************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/style/animat.css ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23935,9 +23935,9 @@ module.exports = _possibleConstructorReturn, module.exports.__esModule = true, m
 /* 62 */,
 /* 63 */,
 /* 64 */
-/*!**********************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/utils/requestUtil.js ***!
-  \**********************************************************/
+/*!****************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/utils/requestUtil.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24043,9 +24043,9 @@ exports.requestUtil = requestUtil;
 /* 79 */,
 /* 80 */,
 /* 81 */
-/*!****************************************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/node_modules/e-commerce_price/index.js ***!
-  \****************************************************************************/
+/*!**********************************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/node_modules/e-commerce_price/index.js ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -24082,9 +24082,9 @@ module.exports = Price;
 /* 94 */,
 /* 95 */,
 /* 96 */
-/*!******************************************************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/popup.js ***!
-  \******************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/popup.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24123,9 +24123,9 @@ exports.default = _default;
 
 /***/ }),
 /* 97 */
-/*!***********************************************************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/i18n/index.js ***!
-  \***********************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/i18n/index.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24149,9 +24149,9 @@ exports.default = _default;
 
 /***/ }),
 /* 98 */
-/*!**********************************************************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/i18n/en.json ***!
-  \**********************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/i18n/en.json ***!
+  \****************************************************************************************************/
 /*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
 /***/ (function(module) {
 
@@ -24159,9 +24159,9 @@ module.exports = JSON.parse("{\"uni-popup.cancel\":\"cancel\",\"uni-popup.ok\":\
 
 /***/ }),
 /* 99 */
-/*!***************************************************************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/i18n/zh-Hans.json ***!
-  \***************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/i18n/zh-Hans.json ***!
+  \*********************************************************************************************************/
 /*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
 /***/ (function(module) {
 
@@ -24169,9 +24169,9 @@ module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\
 
 /***/ }),
 /* 100 */
-/*!***************************************************************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/i18n/zh-Hant.json ***!
-  \***************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-popup/i18n/zh-Hant.json ***!
+  \*********************************************************************************************************/
 /*! exports provided: uni-popup.cancel, uni-popup.ok, uni-popup.placeholder, uni-popup.title, uni-popup.shareTitle, default */
 /***/ (function(module) {
 
@@ -24214,9 +24214,9 @@ module.exports = JSON.parse("{\"uni-popup.cancel\":\"取消\",\"uni-popup.ok\":\
 /* 134 */,
 /* 135 */,
 /* 136 */
-/*!*********************************************************************************************************!*\
-  !*** D:/test/smdc/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-transition/createAnimation.js ***!
-  \*********************************************************************************************************/
+/*!***************************************************************************************************************!*\
+  !*** D:/git/Mashangdian/Uni/diancan-user/node_modules/@dcloudio/uni-ui/lib/uni-transition/createAnimation.js ***!
+  \***************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
